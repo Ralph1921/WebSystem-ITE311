@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSystem</title>
+    <title>LMS Terrado - Learning Management System</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -45,15 +45,15 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="<?= base_url() ?>">WebSystem</a>
+            <a class="navbar-brand" href="<?= base_url() ?>">LMS Terrado</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto gap-2">
                     <li class="nav-item"><a class="nav-link active" href="<?= base_url() ?>">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('index.php/about') ?>">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('index.php/contact') ?>">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/about') ?>">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('/contact') ?>">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('/login') ?>">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('/register') ?>">Register</a></li>
                 </ul>
@@ -66,11 +66,15 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="main-content">
-                    <h1 class="content-title">Welcome to My CI Project</h1>
-                    <p class="content-subtitle">This is the homepage. Use the navigation bar to explore About and Contact pages.</p>
+                    <h1 class="content-title">Welcome to LMS Terrado</h1>
+                    <p class="content-subtitle">Learning Management System - Your gateway to educational excellence. Access courses, track your progress, and enhance your learning experience.</p>
                     <div class="mt-4 d-flex gap-3 justify-content-center">
-                        <a href="<?= base_url('index.php/about') ?>" class="btn btn-primary">Learn About Us</a>
-                        <a href="<?= base_url('index.php/contact') ?>" class="btn btn-outline-primary">Contact Us</a>
+                        <a href="<?= base_url('/login') ?>" class="btn btn-primary btn-lg">Login to Your Account</a>
+                        <a href="<?= base_url('/register') ?>" class="btn btn-outline-primary btn-lg">Create New Account</a>
+                    </div>
+                    <div class="mt-4 d-flex gap-3 justify-content-center">
+                        <a href="<?= base_url('/about') ?>" class="btn btn-secondary">Learn About Us</a>
+                        <a href="<?= base_url('/contact') ?>" class="btn btn-outline-secondary">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -78,7 +82,7 @@
     </div>
 
     <footer class="mt-5 py-4" style="background:#2f4154;color:#fff;">
-        <div class="container text-center">&copy; 2025 My Website</div>
+        <div class="container text-center">&copy; 2025 LMS Terrado - Learning Management System</div>
     </footer>
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
