@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - WebSystem</title>
+    <title>LMS Terrado - Learning Management System</title>
     <style>
         * {
             margin: 0;
@@ -164,30 +164,37 @@
 <body>
     <header class="header">
         <div class="nav-container">
-            <a href="<?= base_url() ?>" class="logo">WebSystem</a>
+            <a href="<?= base_url() ?>" class="logo">LMS Terrado</a>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="<?= base_url() ?>" class="active">Home</a></li>
                     <li><a href="<?= base_url('/about') ?>">About</a></li>
                     <li><a href="<?= base_url('/contact') ?>">Contact</a></li>
+                    <li><a href="<?= base_url('/login') ?>">Login</a></li>
+                    <li><a href="<?= base_url('/register') ?>">Register</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="main-content">
-        <h1 class="welcome-title">Welcome to My CI Project</h1>
-        <p class="welcome-subtitle">This is the homepage. Use the navigation bar to explore About and Contact pages.</p>
+        <h1 class="welcome-title">Welcome to LMS Terrado</h1>
+        <p class="welcome-subtitle">Learning Management System - Your gateway to educational excellence. Access courses, track your progress, and enhance your learning experience.</p>
         
         <div class="btn-group">
-            <a href="<?= base_url('/about') ?>" class="btn btn-primary">Learn About Us</a>
+            <a href="<?= base_url('/login') ?>" class="btn btn-primary">Login to Your Account</a>
+            <a href="<?= base_url('/register') ?>" class="btn btn-outline">Create New Account</a>
+        </div>
+        
+        <div class="btn-group" style="margin-top: 1rem;">
+            <a href="<?= base_url('/about') ?>" class="btn btn-outline" style="margin-right: 10px;">Learn About Us</a>
             <a href="<?= base_url('/contact') ?>" class="btn btn-outline">Contact Us</a>
         </div>
     </main>
 
     <footer class="footer">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <p>&copy; 2025 My Website</p>
+            <p>&copy; 2025 LMS Terrado - Learning Management System</p>
         </div>
     </footer>
 </body>
