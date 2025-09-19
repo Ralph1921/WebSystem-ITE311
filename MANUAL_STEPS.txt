@@ -1,0 +1,50 @@
+MANUAL MYSQL RESET STEPS - NO BATCH FILES NEEDED
+=================================================
+
+If you can't run the batch files, do these steps manually:
+
+STEP 1: Open XAMPP Control Panel as Administrator
+- Right-click on XAMPP Control Panel
+- Select "Run as administrator"
+- Stop MySQL by clicking the "Stop" button
+
+STEP 2: Open Command Prompt as Administrator
+- Press Windows + R
+- Type: cmd
+- Press Ctrl + Shift + Enter (this opens as admin)
+- Click "Yes" when prompted
+
+STEP 3: Run these commands one by one:
+
+cd C:\xampp\mysql\bin
+
+mysqld.exe --skip-grant-tables --skip-networking
+
+(Leave this window open - MySQL is now running in safe mode)
+
+STEP 4: Open ANOTHER Command Prompt as Administrator
+- Repeat Step 2 to open another admin CMD window
+- Run these commands:
+
+cd C:\xampp\mysql\bin
+
+mysql.exe -u root
+
+STEP 5: In the MySQL prompt, type these commands:
+
+USE mysql;
+UPDATE user SET authentication_string = '', plugin = 'mysql_native_password' WHERE User = 'root';
+FLUSH PRIVILEGES;
+EXIT;
+
+STEP 6: Go back to the first CMD window and press Ctrl+C to stop MySQL
+
+STEP 7: Start MySQL normally
+- Go back to XAMPP Control Panel
+- Click "Start" next to MySQL
+
+STEP 8: Try phpMyAdmin
+- Go to: http://127.0.0.1/phpmyadmin/
+- It should work without asking for credentials
+
+If you still get errors, MySQL might need to be reinstalled completely.

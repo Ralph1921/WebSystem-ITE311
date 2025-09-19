@@ -1,0 +1,41 @@
+STEP-BY-STEP ADMIN COMMANDS TO FIX MYSQL:
+
+1. Right-click Command Prompt and select "Run as administrator"
+
+2. Run these commands ONE BY ONE:
+
+net stop MySQL92
+
+cd C:\xampp\mysql\bin
+
+mysqld.exe --skip-grant-tables --skip-networking
+
+(This will start MySQL in safe mode - leave this window open)
+
+3. Open ANOTHER Command Prompt as administrator and run:
+
+cd C:\xampp\mysql\bin
+
+mysql.exe -u root
+
+4. In the MySQL prompt that appears, type these commands:
+
+USE mysql;
+UPDATE user SET authentication_string = '', plugin = 'mysql_native_password' WHERE User = 'root';
+FLUSH PRIVILEGES;
+EXIT;
+
+5. Go back to the first Command Prompt and press Ctrl+C to stop MySQL
+
+6. Run this command:
+
+net start MySQL92
+
+7. Test if it works:
+
+mysql.exe -u root -e "SELECT 'SUCCESS!' as Result;"
+
+If you see "SUCCESS!" then it worked!
+
+ALTERNATIVE: Just run the PowerShell script:
+powershell -ExecutionPolicy Bypass -File "C:\xampp\htdocs\ITE311-TERRADO\fix_mysql_auto.ps1"
