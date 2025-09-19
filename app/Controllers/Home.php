@@ -1,28 +1,39 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
-
 class Home extends BaseController
 {
-    public function index()
+    /**
+     * Render the homepage.
+     */
+    public function index(): string
     {
         return view('homepage_new');
     }
 
-    public function about()
+    /**
+     * Render the about page.
+     */
+    public function about(): string
     {
         return view('about');
     }
 
-    public function contact()
+    /**
+     * Render the contact page.
+     */
+    public function contact(): string
     {
         return view('contact');
     }
 
-    public function test()
+    /**
+     * Render the test page.
+     */
+    public function test(): string
     {
-        return view('test'); // loads app/Views/test.php
+        return view('test');
     }
 }

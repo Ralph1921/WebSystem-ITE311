@@ -1,9 +1,6 @@
 <?php
 /**
- * Redirect to public folder
- * This file redirects requests to the public folder where the actual CodeIgniter 4 entry point is located.
+ * Front controller shim to include public/index.php without redirecting.
+ * This keeps clean URLs like /ITE311-TERRADO/ while serving from /public.
  */
-
-// Redirect to public folder
-header('Location: public/');
-exit();
+require __DIR__ . '/public/index.php';

@@ -31,10 +31,10 @@ try {
 echo "<hr>";
 echo "<h2>Direct File Tests:</h2>";
 echo "<ul>";
-echo "<li><a href='http://localhost:8080/ITE311-TERRADO/public/index.php'>📄 Direct index.php</a></li>";
-echo "<li><a href='http://localhost:8080/ITE311-TERRADO/public/test_intl.php'>🧪 PHP Test</a></li>";
+echo "<li><a href='http://localhost/ITE311-TERRADO/index.php'>📄 Direct index.php</a></li>";
+echo "<li><a href='http://localhost/ITE311-TERRADO/test_intl.php'>🧪 PHP Test</a></li>";
 echo "</ul>";
 ?>
 
 <h2>Expected Homepage URL:</h2>
-<p><a href="http://localhost:8080/ITE311-TERRADO/public/" style="font-size: 18px; color: blue;">🏠 http://localhost:8080/ITE311-TERRADO/public/</a></p>
+<p><a href="http://localhost/ITE311-TERRADO/" style="font-size: 18px; color: blue;">🏠 http://localhost/ITE311-TERRADO/</a></p>

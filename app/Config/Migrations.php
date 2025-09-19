@@ -1,50 +1,54 @@
 <?php
 
-namespace Config;
+namespace App\Database\Migrations;
 
-use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Database\Migration;
 
-class Migrations extends BaseConfig
+class CreateUsersTable extends Migration
 {
-    /**
-     * --------------------------------------------------------------------------
-     * Enable/Disable Migrations
-     * --------------------------------------------------------------------------
-     *
-     * Migrations are enabled by default.
-     *
-     * You should enable migrations whenever you intend to do a schema migration
-     * and disable it back when you're done.
-     */
-    public bool $enabled = true;
+    public function up()
+    {
+        $this->forge->addField([
+            'id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'auto_increment' => true,
+            ],
+            'name' => [
+                'type' => 'VARCHAR',
+                'constraint' => 100,
+            ],
+            'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => 100,
+                'unique' => true,
+            ],
+            'password' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
+            'role' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+                'default' => 'user',
+            ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
+        ]);
+        
+        $this->forge->addKey('id', true);
+        $this->forge->createTable('users');
+    }
 
-    /**
-     * --------------------------------------------------------------------------
-     * Migrations Table
-     * --------------------------------------------------------------------------
-     *
-     * This is the name of the table that will store the current migrations state.
-     * When migrations runs it will store in a database table which migration
-     * files have already been run.
-     */
-    public string $table = 'migrations';
-
-    /**
-     * --------------------------------------------------------------------------
-     * Timestamp Format
-     * --------------------------------------------------------------------------
-     *
-     * This is the format that will be used when creating new migrations
-     * using the CLI command:
-     *   > php spark make:migration
-     *
-     * NOTE: if you set an unsupported format, migration runner will not find
-     *       your migration files.
-     *
-     * Supported formats:
-     * - YmdHis_
-     * - Y-m-d-His_
-     * - Y_m_d_His_
-     */
-    public string $timestampFormat = 'Y-m-d-His_';
+    public function down()
+    {
+        $this->forge->dropTable('users');
+    }
 }

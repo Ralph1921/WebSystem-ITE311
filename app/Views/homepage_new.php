@@ -1,201 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS Terrado - Learning Management System</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        
-        .header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background-color: #34495e;
-        }
-        
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .welcome-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-            font-weight: 300;
-        }
-        
-        .welcome-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-        }
-        
-        .btn-group {
-            margin-top: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 0 10px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background-color: white;
-            color: #667eea;
-        }
-        
-        .btn-primary:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-        }
-        
-        .btn-outline {
-            border: 2px solid white;
-            color: white;
-            background-color: transparent;
-        }
-        
-        .btn-outline:hover {
-            background-color: white;
-            color: #667eea;
-            transform: translateY(-2px);
-        }
-        
-        .footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-menu {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .main-content {
-                padding: 2rem 1rem;
-                margin: 1rem;
-            }
-            
-            .welcome-title {
-                font-size: 2rem;
-            }
-            
-            .btn {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <div class="nav-container">
-            <a href="<?= base_url() ?>" class="logo">LMS Terrado</a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="<?= base_url() ?>" class="active">Home</a></li>
-                    <li><a href="<?= base_url('/about') ?>">About</a></li>
-                    <li><a href="<?= base_url('/contact') ?>">Contact</a></li>
-                    <li><a href="<?= base_url('/login') ?>">Login</a></li>
-                    <li><a href="<?= base_url('/register') ?>">Register</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<?= $this->extend('layouts/main') ?>
 
-    <main class="main-content">
-        <h1 class="welcome-title">Welcome to LMS Terrado</h1>
-        <p class="welcome-subtitle">Learning Management System - Your gateway to educational excellence. Access courses, track your progress, and enhance your learning experience.</p>
-        
-        <div class="btn-group">
-            <a href="<?= base_url('/login') ?>" class="btn btn-primary">Login to Your Account</a>
-            <a href="<?= base_url('/register') ?>" class="btn btn-outline">Create New Account</a>
-        </div>
-        
-        <div class="btn-group" style="margin-top: 1rem;">
-            <a href="<?= base_url('/about') ?>" class="btn btn-outline" style="margin-right: 10px;">Learn About Us</a>
-            <a href="<?= base_url('/contact') ?>" class="btn btn-outline">Contact Us</a>
-        </div>
-    </main>
+<?= $this->section('navRight') ?>
+    <a class="nav-link-top me-3" href="<?= base_url('/about') ?>">About</a>
+    <a class="nav-link-top me-3" href="<?= base_url('/contact') ?>">Contact</a>
+    <a class="nav-link-top me-3" href="<?= base_url('/login') ?>">Login</a>
+    <a class="nav-link-top" href="<?= base_url('/register') ?>">Register</a>
+<?= $this->endSection() ?>
 
-    <footer class="footer">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <p>&copy; 2025 LMS Terrado - Learning Management System</p>
+<?= $this->section('content') ?>
+<div class="row justify-content-center mt-4">
+    <div class="col-12 col-lg-10 col-xl-8">
+        <div class="ui-card p-5 text-center">
+            <h1 class="display-5 fw-bold mb-2">Welcome to LMS Terrado</h1>
+            <p class="lead text-subtle mb-4">
+                Learning Management System - Your gateway to educational excellence. Access courses,
+                track your progress, and enhance your learning experience.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="<?= base_url('/login') ?>" class="btn btn-gradient px-4 py-2">Login to Your Account</a>
+                <a href="<?= base_url('/register') ?>" class="btn btn-outline-light px-4 py-2">Create New Account</a>
+            </div>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mt-3">
+                <a href="<?= base_url('/about') ?>" class="btn btn-outline-light px-4 py-2">Learn About Us</a>
+                <a href="<?= base_url('/contact') ?>" class="btn btn-outline-light px-4 py-2">Contact Us</a>
+            </div>
         </div>
-    </footer>
-</body>
-</html>
+    </div>
+</div>
+<?= $this->endSection() ?>
