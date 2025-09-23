@@ -64,6 +64,11 @@ writable/debugbar/*
 
 php_errors.log
 
+# Ignore any accidental session files written under public/null (misconfig)
+public/null/
+# Ignore any ci_session files anywhere under public as a safety net
+public/**/ci_session*
+
 #-------------------------
 # User Guide Related
 #-------------------------
