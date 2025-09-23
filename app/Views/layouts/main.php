@@ -73,7 +73,36 @@
         <div class="container d-flex align-items-center justify-content-between">
             <a class="brand" href="<?= base_url('/') ?>">WebSystem</a>
             <div>
-                <?= $this->renderSection('navRight') ?>
+                <?php
+                    $navOverride = trim($this->renderSection('navRight'));
+                    if ($navOverride !== '') {
+                        echo $navOverride;
+                    } else {
+                        $isLoggedIn = (bool) session('logged_in');
+                        $role = strtolower((string) session('role'));
+                        $dash = base_url('/dashboard');
+                        if ($role === 'admin') { $dash = base_url('/admin/dashboard'); }
+                        elseif ($role === 'teacher') { $dash = base_url('/teacher/dashboard'); }
+                        elseif ($role === 'student') { $dash = base_url('/student/dashboard'); }
+                ?>
+                        <?php if (!$isLoggedIn): ?>
+                            <a class="nav-link-top me-3" href="<?= base_url('/login') ?>">Login</a>
+                            <a class="btn btn-gradient btn-sm" href="<?= base_url('/register') ?>">Register</a>
+                        <?php else: ?>
+                            <a class="nav-link-top me-3" href="<?= $dash ?>">Dashboard</a>
+                            <?php if ($role === 'admin'): ?>
+                                <a class="nav-link-top me-3" href="#">Manage Users</a>
+                                <a class="nav-link-top me-3" href="#">Manage Courses</a>
+                            <?php elseif ($role === 'teacher'): ?>
+                                <a class="nav-link-top me-3" href="#">My Courses</a>
+                                <a class="nav-link-top me-3" href="#">Create Course</a>
+                            <?php elseif ($role === 'student'): ?>
+                                <a class="nav-link-top me-3" href="#">My Enrollments</a>
+                                <a class="nav-link-top me-3" href="#">Grades</a>
+                            <?php endif; ?>
+                            <a class="btn btn-outline-light btn-sm" href="<?= base_url('/logout') ?>">Logout</a>
+                        <?php endif; ?>
+                <?php } ?>
             </div>
         </div>
     </nav>

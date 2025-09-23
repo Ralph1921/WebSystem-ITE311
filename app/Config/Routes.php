@@ -32,3 +32,14 @@ $routes->get('/dashboard-show', 'Dashboard::index');
 
 // Simple dashboard test (with login required)
 $routes->get('/dashboard-simple', 'Auth::dashboardSimple');
+
+// Role-based dashboards
+$routes->group('admin', function ($routes) {
+    $routes->get('dashboard', 'Admin::dashboard');
+});
+$routes->group('teacher', function ($routes) {
+    $routes->get('dashboard', 'Teacher::dashboard');
+});
+$routes->group('student', function ($routes) {
+    $routes->get('dashboard', 'Student::dashboard');
+});

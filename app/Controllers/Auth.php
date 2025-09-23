@@ -141,17 +141,28 @@ class Auth extends BaseController
                         'logged_in' => true
                     ];
                     
-                    // Set session data
+                    // Set session data and protect against session fixation
                     session()->set($sessionData);
+                    session()->regenerate();
                     session()->setFlashdata('success', 'Welcome back, ' . $user['name'] . '!');
                     
                     // Debug: Verify session was set
                     log_message('debug', 'Session data set: ' . print_r($sessionData, true));
                     log_message('debug', 'Session after setting: ' . print_r(session()->get(), true));
                     
-                    // Use proper redirect with explicit response
-                    log_message('debug', 'Redirecting to dashboard');
-                    return redirect()->to(base_url('/dashboard'));
+                    // Role-based redirection
+                    $role = strtolower($user['role'] ?? '');
+                    $target = '/dashboard';
+                    if ($role === 'admin') {
+                        $target = '/admin/dashboard';
+                    } elseif ($role === 'teacher') {
+                        $target = '/teacher/dashboard';
+                    } elseif ($role === 'student') {
+                        $target = '/student/dashboard';
+                    }
+
+                    log_message('debug', 'Redirecting to role dashboard: ' . $target);
+                    return redirect()->to(base_url($target));
                 } else {
                     log_message('debug', 'Login failed - credentials do not match');
                     $data['error'] = 'Invalid email or password';
