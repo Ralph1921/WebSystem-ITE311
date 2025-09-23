@@ -66,7 +66,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="main-content">
-                    <h1 class="content-title">Welcome to LMS Terrado</h1>
+                    <h1 class="content-title">WELCOME</h1>
                     <p class="content-subtitle">Learning Management System - Your gateway to educational excellence. Access courses, track your progress, and enhance your learning experience.</p>
                     <div class="mt-4 d-flex gap-3 justify-content-center">
                         <a href="<?= base_url('/login') ?>" class="btn btn-primary btn-lg">Login to Your Account</a>
