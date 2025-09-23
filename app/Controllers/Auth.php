@@ -88,6 +88,21 @@ class Auth extends BaseController
         $data = [];
 
         if ($this->request->getMethod() == 'post') {
+            // Basic login throttling to mitigate brute-force attempts (5 attempts / minute per email+IP)
+            try {
+                $emailRaw = (string) $this->request->getPost('email');
+                $key = 'login:' . strtolower(trim($emailRaw)) . ':' . $this->request->getIPAddress();
+                $throttler = service('throttler');
+                if ($throttler && !$throttler->check($key, 5, 60)) { // max 5 per 60 seconds
+                    log_message('warning', 'Login throttled for key: ' . $key);
+                    $data['error'] = 'Too many login attempts. Please try again in a minute.';
+                    return view('auth/login', $data);
+                }
+            } catch (\Throwable $e) {
+                // If throttler/cache not available, fail open without breaking login
+                log_message('debug', 'Throttler unavailable: ' . $e->getMessage());
+            }
+
             // Set validation rules
             $rules = [
                 'email' => [
