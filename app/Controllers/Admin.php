@@ -34,14 +34,47 @@ class Admin extends BaseController
             return $redirect;
         }
 
-        // Example data for the admin dashboard
+        // Try to load real stats from the database, but guard to avoid errors if DB/tables are missing
+        $stats = [
+            'totalUsers' => 0,
+            'totalCourses' => 0,
+            'activeTeachers' => 0,
+        ];
+
+        try {
+            $db = \Config\Database::connect();
+
+            // Helper closure to check table existence in MySQL/MariaDB
+            $hasTable = static function ($db, string $table): bool {
+                try {
+                    $res = $db->query("SHOW TABLES LIKE '" . $db->escapeString($table) . "'");
+                    return $res && method_exists($res, 'getNumRows') && $res->getNumRows() > 0;
+                } catch (\Throwable $e) {
+                    return false;
+                }
+            };
+
+            if ($hasTable($db, 'users')) {
+                $stats['totalUsers'] = (int) $db->table('users')->countAll();
+                // Count teachers by role if role column exists
+                try {
+                    $stats['activeTeachers'] = (int) $db->table('users')->where('role', 'teacher')->countAllResults();
+                } catch (\Throwable $e) {
+                    // ignore; keep default 0
+                }
+            }
+
+            if ($hasTable($db, 'courses')) {
+                $stats['totalCourses'] = (int) $db->table('courses')->countAll();
+            }
+        } catch (\Throwable $e) {
+            // Silently ignore DB issues for now
+            log_message('debug', 'Admin stats DB fetch skipped: ' . $e->getMessage());
+        }
+
         $data = [
             'title' => 'Admin Dashboard',
-            'stats' => [
-                'totalUsers' => 0, // Replace with real counts when DB ready
-                'totalCourses' => 0,
-                'activeTeachers' => 0,
-            ],
+            'stats' => $stats,
         ];
 
         return view('admin/dashboard', $data);
