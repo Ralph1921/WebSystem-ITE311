@@ -1,0 +1,16 @@
+# Disable directory browsing
+Options -Indexes
+
+# Root-level rewrite to send all traffic to /public
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+
+    # Do not rewrite existing files or directories
+    RewriteRule ^public/ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite everything else to /public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

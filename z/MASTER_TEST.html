@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Test - ITE311-TERRADO</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .test-section { background: white; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border: 1px solid #bee5eb; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .btn { display: inline-block; padding: 10px 20px; margin: 5px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        .btn:hover { background: #0056b3; color: white; text-decoration: none; }
+        .btn-success { background: #28a745; }
+        .btn-success:hover { background: #1e7e34; }
+        .btn-warning { background: #ffc107; color: #212529; }
+        .btn-warning:hover { background: #e0a800; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        .credentials { background: #e9ecef; padding: 15px; border-radius: 5px; font-family: monospace; }
+        h1, h2 { color: #333; }
+        .step { margin: 15px 0; padding: 10px; border-left: 4px solid #007bff; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Master Test Page - ITE311-TERRADO</h1>
+    
+    <div class="success">
+        <h2>🎯 Current Status</h2>
+        <p>I've updated your system and created multiple test versions. Your login is working, but the dashboard view might have issues.</p>
+    </div>
+
+    <div class="credentials">
+        <strong>🔑 Login Credentials:</strong><br>
+        Email: terrado@gmail.com<br>
+        Password: siopao123
+    </div>
+
+    <div class="test-section">
+        <h2>📋 Step-by-Step Testing</h2>
+        
+        <div class="step">
+            <h3>Step 1: Test Basic PHP Sessions</h3>
+            <p>This tests if basic PHP sessions work on your system:</p>
+            <a href="simple_login_test.php" class="btn btn-success" target="_blank">Simple Login Test</a>
+            <p><small>✅ Should show login form → success message → dashboard link</small></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Test CodeIgniter Login (Debug Version)</h3>
+            <p>This now shows a debug version of the dashboard:</p>
+            <a href="http://localhost/ITE311-TERRADO/login" class="btn btn-warning" target="_blank">CodeIgniter Login</a>
+            <p><small>⚠️ After login, you should see a DEBUG DASHBOARD with full information</small></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Test Simple Dashboard (No Template)</h3>
+            <p>Beautiful dashboard without complex templating:</p>
+            <a href="http://localhost/ITE311-TERRADO/dashboard-simple" class="btn btn-success" target="_blank">Simple Dashboard</a>
+            <p><small>✅ This should work perfectly and show "Welcome, terrado@gmail.com"</small></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Direct Session Test</h3>
+            <p>Direct access to CodeIgniter sessions:</p>
+            <a href="direct_dashboard_test.php" class="btn" target="_blank">Direct Session Test</a>
+            <p><small>🔧 Shows raw session data and authentication status</small></p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🚨 Troubleshooting Guide</h2>
+        
+        <div class="warning">
+            <h3>If Step 1 Works But Step 2 Doesn't:</h3>
+            <ul>
+                <li>CodeIgniter session configuration issue</li>
+                <li>View templating system problem</li>
+                <li>Layout file (main.php) has errors</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h3>If Step 2 Shows Debug Info But No Welcome Message:</h3>
+            <ul>
+                <li>CSS/JavaScript is hiding the content</li>
+                <li>Browser cache needs clearing (Ctrl+F5)</li>
+                <li>Bootstrap CSS not loading properly</li>
+            </ul>
+        </div>
+
+        <div class="error">
+            <h3>If Nothing Works:</h3>
+            <ul>
+                <li>XAMPP Apache service issue</li>
+                <li>PHP session.save_path problem</li>
+                <li>File permissions on writable/ folder</li>
+            </ul>
+            <p><strong>Solution:</strong> Restart XAMPP and clear browser cache</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Quick Fixes</h2>
+        <ol>
+            <li><strong>Clear Browser Cache:</strong> Press Ctrl+F5 or Ctrl+Shift+R</li>
+            <li><strong>Restart XAMPP:</strong> Stop and start Apache service</li>
+            <li><strong>Check Browser Console:</strong> Press F12 and look for JavaScript errors</li>
+            <li><strong>Try Incognito/Private Mode:</strong> To bypass cache issues</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 All Available Tests</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+            <a href="simple_login_test.php" class="btn btn-success">Simple Login</a>
+            <a href="simple_dashboard_test.php" class="btn btn-success">Simple Dashboard</a>
+            <a href="http://localhost/ITE311-TERRADO/login" class="btn btn-warning">CI Login</a>
+            <a href="http://localhost/ITE311-TERRADO/dashboard" class="btn btn-warning">CI Dashboard (Debug)</a>
+            <a href="http://localhost/ITE311-TERRADO/dashboard-simple" class="btn btn-success">CI Simple</a>
+            <a href="direct_dashboard_test.php" class="btn">Direct Test</a>
+            <a href="complete_login_test.php" class="btn">Flow Test</a>
+            <a href="LOGIN_TESTING_GUIDE.html" class="btn">Full Guide</a>
+        </div>
+    </div>
+
+    <div class="success">
+        <h3>🎯 Expected Result</h3>
+        <p>After following Step 2 (CodeIgniter Login), you should see:</p>
+        <ul>
+            <li>✅ "Dashboard Debug Version" header</li>
+            <li>✅ "SUCCESS - This is your dashboard!"</li>
+            <li>✅ "Welcome, terrado@gmail.com!"</li>
+            <li>✅ Your user information (Name, Email, Role)</li>
+            <li>✅ Debug information and session data</li>
+        </ul>
+    </div>
+</body>
+</html>

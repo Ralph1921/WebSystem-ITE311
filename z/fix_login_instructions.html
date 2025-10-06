@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fix Login Issues - Step by Step</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .step { background: #f5f5f5; padding: 15px; margin: 10px 0; border-left: 4px solid #007cba; }
+        .important { background: #fff3cd; border-color: #ffc107; }
+        .success { background: #d4edda; border-color: #28a745; }
+        .code { background: #f8f9fa; padding: 10px; border: 1px solid #e9ecef; font-family: monospace; }
+        h1, h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Fix Your Login Loading Issue</h1>
+    
+    <div class="step important">
+        <h2>🚨 The Problem</h2>
+        <p>Your login is stuck loading because your CodeIgniter app cannot connect to MySQL. The MySQL root user requires a password that we don't know.</p>
+    </div>
+
+    <div class="step">
+        <h2>📋 Solution Steps</h2>
+        
+        <h3>Step 1: Open XAMPP Control Panel</h3>
+        <ul>
+            <li>Open XAMPP Control Panel as <strong>Administrator</strong></li>
+            <li>Stop MySQL service by clicking "Stop"</li>
+        </ul>
+
+        <h3>Step 2: Reset MySQL Authentication</h3>
+        <ul>
+            <li>Click "Config" button next to MySQL</li>
+            <li>Select "my.ini" from the dropdown</li>
+            <li>Find the <code>[mysqld]</code> section</li>
+            <li>Add this line under [mysqld]:</li>
+        </ul>
+        <div class="code">skip-grant-tables</div>
+        <ul>
+            <li>Save the file and close the editor</li>
+            <li>Start MySQL service again in XAMPP</li>
+        </ul>
+
+        <h3>Step 3: Set Up Database</h3>
+        <ul>
+            <li>Open phpMyAdmin: <a href="http://localhost/phpmyadmin" target="_blank">http://localhost/phpmyadmin</a></li>
+            <li>It should now work without asking for password</li>
+            <li>Click "New" to create a database</li>
+            <li>Database name: <strong>lms_terrado</strong></li>
+            <li>Collation: <strong>utf8mb4_unicode_ci</strong></li>
+            <li>Click "Create"</li>
+        </ul>
+
+        <h3>Step 4: Create Users Table</h3>
+        <ul>
+            <li>Select your new "lms_terrado" database</li>
+            <li>Click "SQL" tab</li>
+            <li>Copy and paste this SQL code:</li>
+        </ul>
+        <div class="code">CREATE TABLE `users` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `role` ENUM('admin','user') NOT NULL DEFAULT 'user',
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `users` (`name`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES 
+('Terrado User', 'terrado@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', NOW(), NOW());</div>
+        <ul>
+            <li>Click "Go" to execute</li>
+        </ul>
+
+        <h3>Step 5: Reset Root Password (Optional)</h3>
+        <ul>
+            <li>While still in phpMyAdmin, click "User accounts" at the top</li>
+            <li>Find "root" user for "localhost"</li>
+            <li>Click "Edit privileges"</li>
+            <li>Click "Change password"</li>
+            <li>Set password to: <strong>password</strong></li>
+            <li>Click "Go"</li>
+        </ul>
+
+        <h3>Step 6: Update CodeIgniter Config</h3>
+        <ul>
+            <li>Update your database config with the new password:</li>
+        </ul>
+        <div class="code">File: app/Config/Database.php
+Line 33: 'password' => 'password',</div>
+
+        <h3>Step 7: Re-enable MySQL Security</h3>
+        <ul>
+            <li>Stop MySQL in XAMPP Control Panel</li>
+            <li>Edit my.ini again</li>
+            <li>Remove or comment out the <code>skip-grant-tables</code> line</li>
+            <li>Save and start MySQL again</li>
+        </ul>
+    </div>
+
+    <div class="step success">
+        <h2>✅ Test Your Login</h2>
+        <p><strong>Login Credentials:</strong></p>
+        <ul>
+            <li>Email: <strong>terrado@gmail.com</strong></li>
+            <li>Password: <strong>siopao123</strong></li>
+        </ul>
+        <p><a href="login" target="_blank">Test Login Now</a></p>
+    </div>
+
+    <div class="step important">
+        <h2>⚡ Quick Alternative</h2>
+        <p>If the above seems complex, try this simpler approach:</p>
+        <ol>
+            <li>Update your database config to use an empty password:</li>
+        </ol>
+        <div class="code">'password' => '',</div>
+        <ol start="2">
+            <li>In XAMPP Control Panel, reset MySQL password to blank</li>
+        </ol>
+    </div>
+</body>
+</html>

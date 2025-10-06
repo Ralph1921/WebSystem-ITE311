@@ -1,0 +1,25 @@
+COMMANDS TO RUN AFTER CREATING YOUR GITHUB REPOSITORY:
+========================================================
+
+After you create the repository on GitHub (https://github.com/Ralph1921), 
+run these commands:
+
+1. If you named it "WebSystem-ITE311":
+   git remote set-url origin https://github.com/Ralph1921/WebSystem-ITE311.git
+
+2. If you named it "ITE311-TERRADO":
+   git remote set-url origin https://github.com/Ralph1921/ITE311-TERRADO.git
+
+3. Then push:
+   git push -u origin master
+
+4. Or if authentication is needed:
+   git push -u origin master --force-with-lease
+
+YOUR COMMIT IS ALREADY READY:
+============================
+✅ Commit message: "USER AUTHENTICATION (LOGIN/REGISTRATION) - Enhanced authentication system with database integration and dashboard functionality"
+✅ 45 files changed, 1,327 insertions, 918 deletions
+✅ All your authentication system, database migrations, and dashboard functionality included
+
+JUST CREATE THE REPO ON GITHUB AND PUSH!

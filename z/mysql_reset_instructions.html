@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MySQL Password Reset Instructions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f5f5f5; }
+        .container { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #d32f2f; }
+        h2 { color: #1976d2; }
+        .step { background-color: #e3f2fd; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #2196f3; }
+        .warning { background-color: #fff3e0; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #ff9800; }
+        .success { background-color: #e8f5e8; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #4caf50; }
+        code { background-color: #f5f5f5; padding: 2px 4px; border-radius: 3px; font-family: monospace; }
+        .command { background-color: #263238; color: #ffffff; padding: 10px; border-radius: 5px; font-family: monospace; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 MySQL Password Reset Instructions</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Important:</strong> These steps require Administrator privileges on Windows.
+        </div>
+
+        <h2>Method 1: Using XAMPP Control Panel</h2>
+        <div class="step">
+            <h3>Step 1: Stop MySQL</h3>
+            <ol>
+                <li>Open XAMPP Control Panel as Administrator</li>
+                <li>Click "Stop" next to MySQL</li>
+                <li>Wait until it shows "Stopped"</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Edit MySQL Configuration</h3>
+            <ol>
+                <li>Open: <code>C:\xampp\mysql\bin\my.ini</code> in Notepad (as Administrator)</li>
+                <li>Find the <code>[mysqld]</code> section</li>
+                <li>Add this line: <code>skip-grant-tables</code></li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Start MySQL</h3>
+            <ol>
+                <li>In XAMPP Control Panel, click "Start" next to MySQL</li>
+                <li>Wait until it shows "Running"</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Reset Password</h3>
+            <ol>
+                <li>Open Command Prompt as Administrator</li>
+                <li>Run these commands one by one:</li>
+            </ol>
+            <div class="command">
+cd C:\xampp\mysql\bin<br>
+mysql.exe -u root
+            </div>
+            <p>In the MySQL prompt, run:</p>
+            <div class="command">
+USE mysql;<br>
+UPDATE user SET authentication_string = '', plugin = 'mysql_native_password' WHERE User = 'root';<br>
+FLUSH PRIVILEGES;<br>
+EXIT;
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Remove skip-grant-tables</h3>
+            <ol>
+                <li>Open <code>C:\xampp\mysql\bin\my.ini</code> again</li>
+                <li>Remove the line <code>skip-grant-tables</code></li>
+                <li>Save the file</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Step 6: Restart MySQL</h3>
+            <ol>
+                <li>In XAMPP Control Panel, click "Stop" then "Start" for MySQL</li>
+            </ol>
+        </div>
+
+        <h2>Method 2: Quick Script (Run as Administrator)</h2>
+        <div class="step">
+            <ol>
+                <li>Right-click on <strong>PowerShell</strong> and select <strong>"Run as Administrator"</strong></li>
+                <li>Navigate to your project folder:</li>
+                <div class="command">cd C:\xampp\htdocs\ITE311-TERRADO</div>
+                <li>Run the reset script:</li>
+                <div class="command">.\fix_mysql_auto.ps1</div>
+            </ol>
+        </div>
+
+        <h2>After Reset is Complete:</h2>
+        <div class="success">
+            <ol>
+                <li>Visit: <a href="http://127.0.0.1/phpmyadmin/" target="_blank">http://127.0.0.1/phpmyadmin/</a></li>
+                <li>phpMyAdmin should now work without requiring a password</li>
+                <li>You can create databases and manage your data</li>
+            </ol>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Security Note:</strong> After fixing this issue, consider setting up proper MySQL users with passwords for production use.
+        </div>
+    </div>
+</body>
+</html>

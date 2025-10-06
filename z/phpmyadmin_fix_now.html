@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phpMyAdmin Fix - Wrong Credentials</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background: #f8f9fa; }
+        .error { background: #f8d7da; padding: 20px; border: 1px solid #f5c6cb; border-radius: 5px; margin: 20px 0; }
+        .success { background: #d4edda; padding: 20px; border: 1px solid #c3e6cb; border-radius: 5px; margin: 20px 0; }
+        .warning { background: #fff3cd; padding: 20px; border: 1px solid #ffeaa7; border-radius: 5px; margin: 20px 0; }
+        .credentials { background: #e9ecef; padding: 15px; border-radius: 5px; margin: 15px 0; font-family: monospace; font-size: 16px; }
+        h1, h2 { color: #333; text-align: center; }
+        .big-button { display: block; width: 200px; margin: 20px auto; padding: 15px; background: #007bff; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>🚨 phpMyAdmin Credential Error</h1>
+    
+    <div class="error">
+        <h2>❌ You're Using WRONG Credentials!</h2>
+        <p>You tried: <strong>terrado@gmail.com</strong></p>
+        <p>That's your <strong>CodeIgniter application login</strong>, not MySQL!</p>
+    </div>
+
+    <div class="success">
+        <h2>✅ Use THESE Credentials for phpMyAdmin:</h2>
+        <div class="credentials">
+            <strong>Username:</strong> root<br>
+            <strong>Password:</strong> (leave blank OR try: root)
+        </div>
+    </div>
+
+    <div class="warning">
+        <h2>🔍 Two Different Systems:</h2>
+        <p><strong>1. phpMyAdmin (Database):</strong></p>
+        <div class="credentials">
+            Username: root<br>
+            Password: (blank) or root
+        </div>
+        
+        <p><strong>2. CodeIgniter App (Your Website):</strong></p>
+        <div class="credentials">
+            Email: terrado@gmail.com<br>
+            Password: siopao123
+        </div>
+    </div>
+
+    <a href="http://localhost/phpmyadmin" class="big-button">Try phpMyAdmin Again</a>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <p><strong>Remember:</strong> Clear the username field and type <code>root</code></p>
+        <p>Then leave password blank or try <code>root</code></p>
+    </div>
+
+    <hr style="margin: 30px 0;">
+    
+    <div style="text-align: center;">
+        <h3>🔗 Your Working Links:</h3>
+        <p><a href="http://localhost/ITE311-TERRADO/login">CodeIgniter Login (Working!)</a></p>
+        <p><a href="http://localhost/phpmyadmin">phpMyAdmin (Use: root / blank)</a></p>
+    </div>
+</body>
+</html>
