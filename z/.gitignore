@@ -69,6 +69,9 @@ public/null/
 # Ignore any ci_session files anywhere under public as a safety net
 public/**/ci_session*
 
+# My specific project directories
+my-student-dashboard/
+
 #-------------------------
 # User Guide Related
 #-------------------------
