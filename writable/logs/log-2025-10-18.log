@@ -1,0 +1,140 @@
+CRITICAL - 2025-10-18 13:11:59 --> ErrorException: Undefined property: Config\Migrations::$timestampFormat
+in SYSTEMPATH\Commands\Generators\MigrationGenerator.php on line 127.
+ 1 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Migrations::$timestampFormat', 'C:\\xampp\\htdocs\\ITE311-TERRADO\\system\\Commands\\Generators\\MigrationGenerator.php', 127)
+ 2 SYSTEMPATH\CLI\GeneratorTrait.php(335): CodeIgniter\Commands\Generators\MigrationGenerator->basename('C:\\xampp\\htdocs\\ITE311-TERRADO\\app\\Database\\Migrations\\CreateEnrollmentsTable.php')
+ 3 SYSTEMPATH\CLI\GeneratorTrait.php(109): CodeIgniter\Commands\Generators\MigrationGenerator->buildPath('App\\Database\\Migrations\\CreateEnrollmentsTable')
+ 4 SYSTEMPATH\CLI\GeneratorTrait.php(95): CodeIgniter\Commands\Generators\MigrationGenerator->generateClass([...])
+ 5 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(93): CodeIgniter\Commands\Generators\MigrationGenerator->execute([...])
+ 6 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Generators\MigrationGenerator->run([...])
+ 7 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('make:migration', [...])
+ 8 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-18 13:12:24 --> ErrorException: Undefined property: Config\Migrations::$timestampFormat
+in SYSTEMPATH\Commands\Generators\MigrationGenerator.php on line 127.
+ 1 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: Config\\Migrations::$timestampFormat', 'C:\\xampp\\htdocs\\ITE311-TERRADO\\system\\Commands\\Generators\\MigrationGenerator.php', 127)
+ 2 SYSTEMPATH\CLI\GeneratorTrait.php(335): CodeIgniter\Commands\Generators\MigrationGenerator->basename('C:\\xampp\\htdocs\\ITE311-TERRADO\\app\\Database\\Migrations\\EnrollmentsTable.php')
+ 3 SYSTEMPATH\CLI\GeneratorTrait.php(109): CodeIgniter\Commands\Generators\MigrationGenerator->buildPath('App\\Database\\Migrations\\EnrollmentsTable')
+ 4 SYSTEMPATH\CLI\GeneratorTrait.php(95): CodeIgniter\Commands\Generators\MigrationGenerator->generateClass([...])
+ 5 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(93): CodeIgniter\Commands\Generators\MigrationGenerator->execute([...])
+ 6 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Generators\MigrationGenerator->run([...])
+ 7 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('make:migration', [...])
+ 8 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+ERROR - 2025-10-18 13:15:19 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-18 13:15:19 --> mysqli_sql_exception: Table 'enrollments' already exists in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `e...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `e...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `e...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `e...')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Database\Migrations\2025-10-10-005026_CreateEnrollmentsTable.php(51): CodeIgniter\Database\Forge->createTable('enrollments')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(865): App\Database\Migrations\CreateEnrollmentsTable->up()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-18 13:15:19 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-18 14:55:18 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-18 14:55:18 --> mysqli_sql_exception: Table 'enrollments' already exists in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `e...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `e...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `e...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `e...')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Database\Migrations\2025-10-10-005026_CreateEnrollmentsTable.php(51): CodeIgniter\Database\Forge->createTable('enrollments')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(865): App\Database\Migrations\CreateEnrollmentsTable->up()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-18 14:55:18 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-18 14:59:28 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-18 14:59:28 --> mysqli_sql_exception: Table 'enrollments' already exists in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `e...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `e...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `e...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `e...')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Database\Migrations\2025-10-10-005026_CreateEnrollmentsTable.php(51): CodeIgniter\Database\Forge->createTable('enrollments')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(865): App\Database\Migrations\CreateEnrollmentsTable->up()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-18 14:59:28 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}

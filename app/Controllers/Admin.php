@@ -79,4 +79,111 @@ class Admin extends BaseController
 
         return view('admin/dashboard', $data);
     }
+
+    public function manageUsers()
+    {
+        if ($redirect = $this->ensureAuthorized()) {
+            return $redirect;
+        }
+
+        // Get users from database if available
+        $users = [];
+        try {
+            $db = \Config\Database::connect();
+            $hasTable = static function ($db, string $table): bool {
+                try {
+                    $res = $db->query("SHOW TABLES LIKE '" . $db->escapeString($table) . "'");
+                    return $res && method_exists($res, 'getNumRows') && $res->getNumRows() > 0;
+                } catch (\Throwable $e) {
+                    return false;
+                }
+            };
+
+            if ($hasTable($db, 'users')) {
+                $users = $db->table('users')->get()->getResultArray();
+            }
+        } catch (\Throwable $e) {
+            log_message('debug', 'Admin manage users DB fetch skipped: ' . $e->getMessage());
+        }
+
+        $data = [
+            'title' => 'Manage Users',
+            'users' => $users,
+        ];
+
+        return view('admin/manage_users', $data);
+    }
+
+    public function manageCourses()
+    {
+        if ($redirect = $this->ensureAuthorized()) {
+            return $redirect;
+        }
+
+        // Get courses from database if available
+        $courses = [];
+        try {
+            $db = \Config\Database::connect();
+            $hasTable = static function ($db, string $table): bool {
+                try {
+                    $res = $db->query("SHOW TABLES LIKE '" . $db->escapeString($table) . "'");
+                    return $res && method_exists($res, 'getNumRows') && $res->getNumRows() > 0;
+                } catch (\Throwable $e) {
+                    return false;
+                }
+            };
+
+            if ($hasTable($db, 'courses')) {
+                $courses = $db->table('courses')->get()->getResultArray();
+            }
+        } catch (\Throwable $e) {
+            log_message('debug', 'Admin manage courses DB fetch skipped: ' . $e->getMessage());
+        }
+
+        $data = [
+            'title' => 'Manage Courses',
+            'courses' => $courses,
+        ];
+
+        return view('admin/manage_courses', $data);
+    }
+
+    public function activityLogs()
+    {
+        if ($redirect = $this->ensureAuthorized()) {
+            return $redirect;
+        }
+
+        // Mock activity logs data - in a real application, this would come from a logs table
+        $logs = [
+            [
+                'id' => 1,
+                'user' => 'admin@lms.com',
+                'action' => 'User login',
+                'timestamp' => date('Y-m-d H:i:s', strtotime('-2 hours')),
+                'ip_address' => '127.0.0.1'
+            ],
+            [
+                'id' => 2,
+                'user' => 'jane.student@lms.com',
+                'action' => 'Course enrollment',
+                'timestamp' => date('Y-m-d H:i:s', strtotime('-4 hours')),
+                'ip_address' => '127.0.0.1'
+            ],
+            [
+                'id' => 3,
+                'user' => 'instructor@lms.com',
+                'action' => 'Course created',
+                'timestamp' => date('Y-m-d H:i:s', strtotime('-6 hours')),
+                'ip_address' => '127.0.0.1'
+            ]
+        ];
+
+        $data = [
+            'title' => 'Activity Logs',
+            'logs' => $logs,
+        ];
+
+        return view('admin/activity_logs', $data);
+    }
 }

@@ -11,19 +11,19 @@ class CreateEnrollmentsTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',
-                'constraint'     => 11,
+                'constraint'     => 5,
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
             'user_id' => [
                 'type'       => 'INT',
-                'constraint' => 11,
-                'unsigned'   => true,
+                'constraint' => 5,
+                'unsigned'   => true, // Assuming user_id is unsigned
             ],
             'course_id' => [
                 'type'       => 'INT',
-                'constraint' => 11,
-                'unsigned'   => true,
+                'constraint' => 5,
+                'unsigned'   => true, // Assuming course_id is unsigned
             ],
             'enrollment_date' => [
                 'type' => 'DATETIME',
@@ -39,15 +39,9 @@ class CreateEnrollmentsTable extends Migration
             ],
         ]);
 
-        $this->forge->addPrimaryKey('id');
-        
-        // Add foreign key constraints
-        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('course_id', 'courses', 'id', 'CASCADE', 'CASCADE');
-        
-        // Create unique constraint to prevent duplicate enrollments
-        $this->forge->addUniqueKey(['user_id', 'course_id']);
-        
+        $this->forge->addKey('id', true); // Primary Key
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE'); // Foreign Key to users table
+        $this->forge->addForeignKey('course_id', 'courses', 'id', 'CASCADE', 'CASCADE'); // Foreign Key to courses table
         $this->forge->createTable('enrollments');
     }
 

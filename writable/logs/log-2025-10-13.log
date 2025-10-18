@@ -1,0 +1,284 @@
+CRITICAL - 2025-10-13 07:28:44 --> ErrorException: Undefined property: App\Database\Migrations\CreateUsersTable::$timestampFormat
+in SYSTEMPATH\Commands\Generators\MigrationGenerator.php on line 127.
+ 1 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Database\\Migrations\\CreateUsersTable::$timestampFormat', 'C:\\xampp\\htdocs\\ITE311-TERRADO\\system\\Commands\\Generators\\MigrationGenerator.php', 127)
+ 2 SYSTEMPATH\CLI\GeneratorTrait.php(335): CodeIgniter\Commands\Generators\MigrationGenerator->basename('C:\\xampp\\htdocs\\ITE311-TERRADO\\app\\Database\\Migrations\\CreateEnrollmentsTable.php')
+ 3 SYSTEMPATH\CLI\GeneratorTrait.php(109): CodeIgniter\Commands\Generators\MigrationGenerator->buildPath('App\\Database\\Migrations\\CreateEnrollmentsTable')
+ 4 SYSTEMPATH\CLI\GeneratorTrait.php(95): CodeIgniter\Commands\Generators\MigrationGenerator->generateClass([...])
+ 5 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(93): CodeIgniter\Commands\Generators\MigrationGenerator->execute([...])
+ 6 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Generators\MigrationGenerator->run([...])
+ 7 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('make:migration', [...])
+ 8 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-13 07:31:42 --> TypeError: CodeIgniter\Database\MigrationRunner::__construct(): Argument #1 ($config) must be of type Config\Migrations, App\Database\Migrations\CreateUsersTable given, called in C:\xampp\htdocs\ITE311-TERRADO\system\Config\Services.php on line 417
+in SYSTEMPATH\Database\MigrationRunner.php on line 133.
+ 1 SYSTEMPATH\Config\Services.php(417): CodeIgniter\Database\MigrationRunner->__construct(Object(App\Database\Migrations\CreateUsersTable), null)
+ 2 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations(Object(App\Database\Migrations\CreateUsersTable), null, false)
+ 3 SYSTEMPATH\Config\BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 4 SYSTEMPATH\Config\Services.php(412): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 5 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations()
+ 6 SYSTEMPATH\Commands\Database\Migrate.php(69): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+ 7 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run([])
+ 8 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', [])
+ 9 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-13 07:32:18 --> ErrorException: Undefined property: App\Database\Migrations\CreateUsersTable::$timestampFormat
+in SYSTEMPATH\Commands\Generators\MigrationGenerator.php on line 127.
+ 1 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Database\\Migrations\\CreateUsersTable::$timestampFormat', 'C:\\xampp\\htdocs\\ITE311-TERRADO\\system\\Commands\\Generators\\MigrationGenerator.php', 127)
+ 2 SYSTEMPATH\CLI\GeneratorTrait.php(335): CodeIgniter\Commands\Generators\MigrationGenerator->basename('C:\\xampp\\htdocs\\ITE311-TERRADO\\app\\Database\\Migrations\\CreateEnrollmentsTable.php')
+ 3 SYSTEMPATH\CLI\GeneratorTrait.php(109): CodeIgniter\Commands\Generators\MigrationGenerator->buildPath('App\\Database\\Migrations\\CreateEnrollmentsTable')
+ 4 SYSTEMPATH\CLI\GeneratorTrait.php(95): CodeIgniter\Commands\Generators\MigrationGenerator->generateClass([...])
+ 5 SYSTEMPATH\Commands\Generators\MigrationGenerator.php(93): CodeIgniter\Commands\Generators\MigrationGenerator->execute([...])
+ 6 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Generators\MigrationGenerator->run([...])
+ 7 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('make:migration', [...])
+ 8 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-13 07:37:21 --> TypeError: CodeIgniter\Database\MigrationRunner::__construct(): Argument #1 ($config) must be of type Config\Migrations, App\Database\Migrations\CreateUsersTable given, called in C:\xampp\htdocs\ITE311-TERRADO\system\Config\Services.php on line 417
+in SYSTEMPATH\Database\MigrationRunner.php on line 133.
+ 1 SYSTEMPATH\Config\Services.php(417): CodeIgniter\Database\MigrationRunner->__construct(Object(App\Database\Migrations\CreateUsersTable), null)
+ 2 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations(Object(App\Database\Migrations\CreateUsersTable), null, false)
+ 3 SYSTEMPATH\Config\BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 4 SYSTEMPATH\Config\Services.php(412): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 5 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations()
+ 6 SYSTEMPATH\Commands\Database\Migrate.php(69): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+ 7 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run([])
+ 8 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', [])
+ 9 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-13 08:08:18 --> TypeError: CodeIgniter\Database\MigrationRunner::__construct(): Argument #1 ($config) must be of type Config\Migrations, App\Database\Migrations\CreateUsersTable given, called in C:\xampp\htdocs\ITE311-TERRADO\system\Config\Services.php on line 417
+in SYSTEMPATH\Database\MigrationRunner.php on line 133.
+ 1 SYSTEMPATH\Config\Services.php(417): CodeIgniter\Database\MigrationRunner->__construct(Object(App\Database\Migrations\CreateUsersTable), null)
+ 2 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations(Object(App\Database\Migrations\CreateUsersTable), null, false)
+ 3 SYSTEMPATH\Config\BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 4 SYSTEMPATH\Config\Services.php(412): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 5 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations()
+ 6 SYSTEMPATH\Commands\Database\MigrateRollback.php(80): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+ 7 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\MigrateRollback->run([])
+ 8 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate:rollback', [])
+ 9 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-10-13 08:08:19 --> TypeError: CodeIgniter\Database\MigrationRunner::__construct(): Argument #1 ($config) must be of type Config\Migrations, App\Database\Migrations\CreateUsersTable given, called in C:\xampp\htdocs\ITE311-TERRADO\system\Config\Services.php on line 417
+in SYSTEMPATH\Database\MigrationRunner.php on line 133.
+ 1 SYSTEMPATH\Config\Services.php(417): CodeIgniter\Database\MigrationRunner->__construct(Object(App\Database\Migrations\CreateUsersTable), null)
+ 2 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations(Object(App\Database\Migrations\CreateUsersTable), null, false)
+ 3 SYSTEMPATH\Config\BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic('migrations', [...])
+ 4 SYSTEMPATH\Config\Services.php(412): CodeIgniter\Config\BaseService::getSharedInstance('migrations', null, null)
+ 5 SYSTEMPATH\Config\BaseService.php(258): CodeIgniter\Config\Services::migrations()
+ 6 SYSTEMPATH\Commands\Database\Migrate.php(69): CodeIgniter\Config\BaseService::__callStatic('migrations', [])
+ 7 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run([])
+ 8 SYSTEMPATH\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', [])
+ 9 ROOTPATH\spark(102): CodeIgniter\CLI\Console->run()
+ERROR - 2025-10-13 08:11:36 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-13 08:11:36 --> mysqli_sql_exception: Table 'enrollments' already exists in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `e...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `e...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `e...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `e...')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Database\Migrations\2025-10-10-005026_CreateEnrollmentsTable.php(51): CodeIgniter\Database\Forge->createTable('enrollments')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(865): App\Database\Migrations\CreateEnrollmentsTable->up()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-13 08:11:36 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-13 08:23:48 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-13 08:23:48 --> mysqli_sql_exception: Table 'enrollments' already exists in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('CREATE TABLE `e...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `e...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `e...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\Forge.php(555): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `e...')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Database\Migrations\2025-10-10-005026_CreateEnrollmentsTable.php(51): CodeIgniter\Database\Forge->createTable('enrollments')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(865): App\Database\Migrations\CreateEnrollmentsTable->up()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(181): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2025-10-13 08:23:48 --> mysqli_sql_exception: Unknown column 'group' in 'field list' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `mi...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `mi...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `mi...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(2307): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mi...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(592): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->addHistory(Object(stdClass), 1)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\Commands\Database\Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CLI\Console.php(46): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 C:\xampp\htdocs\ITE311-TERRADO\spark(102): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2025-10-13 08:45:14 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_terrado', 3307, '', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(346): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(1297): CodeIgniter\Database\MySQLi\Connection->_escapeString('users')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(50): CodeIgniter\Database\BaseConnection->escapeString('users')
+#5 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(57): App\Controllers\Admin::App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Connection), 'users')
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\Admin->dashboard()
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(346): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(1297): CodeIgniter\Database\MySQLi\Connection->_escapeString('users')
+#3 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(50): CodeIgniter\Database\BaseConnection->escapeString('users')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(57): App\Controllers\Admin::App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Connection), 'users')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\Admin->dashboard()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-10-13 11:14:22 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(625): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\StudentDashboard.php(27): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-10-13 11:14:22 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(641): CodeIgniter\Model->doFindAll(4, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\StudentDashboard.php(28): CodeIgniter\BaseModel->findAll(4)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-10-13 11:14:22 --> Error: Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 244.
+ 1 SYSTEMPATH\BaseModel.php(641): CodeIgniter\Model->doFindAll(4, 0)
+ 2 APPPATH\Controllers\StudentDashboard.php(28): CodeIgniter\BaseModel->findAll(4)
+ 3 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+ 4 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-13 11:20:53 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(625): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\StudentDashboard.php(27): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-10-13 11:20:53 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(641): CodeIgniter\Model->doFindAll(4, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\StudentDashboard.php(28): CodeIgniter\BaseModel->findAll(4)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-10-13 11:20:53 --> Error: Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 244.
+ 1 SYSTEMPATH\BaseModel.php(641): CodeIgniter\Model->doFindAll(4, 0)
+ 2 APPPATH\Controllers\StudentDashboard.php(28): CodeIgniter\BaseModel->findAll(4)
+ 3 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+ 4 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-13 11:21:07 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "student/courses.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('student/courses.php')
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('student/courses', [], true)
+ 3 APPPATH\Controllers\StudentDashboard.php(41): view('student/courses', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\StudentDashboard->courses()
+ 5 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-13 12:10:29 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(625): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\StudentDashboard.php(27): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-10-13 12:10:29 --> mysqli_sql_exception: Unknown column 'status' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(243): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(641): CodeIgniter\Model->doFindAll(4, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\StudentDashboard.php(28): CodeIgniter\BaseModel->findAll(4)
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-10-13 12:10:29 --> Error: Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 244.
+ 1 SYSTEMPATH\BaseModel.php(641): CodeIgniter\Model->doFindAll(4, 0)
+ 2 APPPATH\Controllers\StudentDashboard.php(28): CodeIgniter\BaseModel->findAll(4)
+ 3 SYSTEMPATH\CodeIgniter.php(943): App\Controllers\StudentDashboard->index()
+ 4 SYSTEMPATH\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StudentDashboard))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
