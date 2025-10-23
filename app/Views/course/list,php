@@ -1,0 +1,17 @@
+<div id="courses-list">
+  <div class="course-card" data-course-id="<?= esc($course['id']) ?>">
+    <h3 class="course-title"><?= esc($course['title']) ?></h3>
+    <p class="course-desc"><?= esc($course['description']) ?></p>
+    <button class="btn-enroll" data-course-id="<?= esc($course['id']) ?>" aria-live="polite">
+      Enroll
+    </button>
+    <span class="enroll-status" aria-hidden="true"></span>
+  </div>
+  <!-- repeat for each course -->
+</div>
+
+<div id="enroll-toast" role="status" aria-live="polite" style="display:none;"></div>
+
+<!-- include the JS file -->
+<script src="<?= base_url('js/enroll.js') ?>"></script>
+<link rel="stylesheet" href="<?= base_url('css/enroll.css') ?>">

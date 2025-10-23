@@ -12,6 +12,9 @@ $routes->get('/home', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
 $routes->get('/test', 'Home::test');
+$routes->post('/course/enroll', 'Course::enroll');
+$routes->match(['get','post'], 'course/enroll', 'Course::enroll');
+
 
 // Authentication routes
 $routes->get('/register', 'Auth::register');
@@ -33,13 +36,26 @@ $routes->get('/dashboard-show', 'Dashboard::index');
 // Simple dashboard test (with login required)
 $routes->get('/dashboard-simple', 'Auth::dashboardSimple');
 
-// Role-based dashboards
-$routes->group('admin', function ($routes) {
-    $routes->get('dashboard', 'Admin::dashboard');
+// ✅ Student routes
+$routes->group('student', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('dashboard', 'StudentDashboard::index');
+    $routes->get('courses', 'StudentDashboard::courses');
+    $routes->post('enroll/(:num)', 'StudentDashboard::enroll/$1');
 });
-$routes->group('teacher', function ($routes) {
+
+// Role-based dashboards
+$routes->group('admin', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('dashboard', 'Admin::dashboard');
+    $routes->get('manage-users', 'Admin::manageUsers');
+    $routes->get('manage-courses', 'Admin::manageCourses');
+    $routes->get('activity-logs', 'Admin::activityLogs');
+});
+
+$routes->group('teacher', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('dashboard', 'Teacher::dashboard');
 });
-$routes->group('student', function ($routes) {
-    $routes->get('dashboard', 'Student::dashboard');
+
+// Optional: test route for quick debugging
+$routes->get('student/test-route', function() {
+    return 'Student route OK';
 });

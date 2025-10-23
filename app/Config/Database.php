@@ -10,6 +10,7 @@ class Database extends Config
     public string $defaultGroup = 'default';
 
     public array $default = [
+<<<<<<< HEAD
         'DSN'       => '',
         'hostname'  => 'localhost',
         'username'  => 'root',
@@ -28,6 +29,25 @@ class Database extends Config
         'failover'  => [],
         'port'      => 3306,
         'numberNative' => false,
+=======
+        'DSN'          => '',
+        'hostname'     => 'localhost',
+        'username'     => 'root',
+        'password'     => '', // No password for easy development
+        'database'     => 'lms_terrado',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => false,
+        'DBDebug'      => false, // Set to false to handle errors gracefully
+        'charset'      => 'utf8mb4',
+        'DBCollat'     => 'utf8mb4_unicode_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3307, // Your MySQL port
+>>>>>>> c2bc064 (Update .gitignore to exclude my-student-dashboard)
     ];
 
     public array $tests = [

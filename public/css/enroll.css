@@ -1,0 +1,4 @@
+.btn-enroll.enrolled { background:#2a9d8f; color:#fff; cursor: default; }
+.toast { padding: 8px 12px; border-radius: 6px; max-width: 320px; margin: 8px; position: fixed; right: 16px; bottom: 16px; z-index:9999; }
+.toast-success { background: #e6fffa; color: #064e3b; border: 1px solid #2a9d8f;}
+.toast-error { background: #ffe6e6; color: #660000; border: 1px solid #ff4d4d;}

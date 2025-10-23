@@ -43,9 +43,9 @@
         <h5 class="mb-0">Quick Actions</h5>
       </div>
       <div class="d-flex gap-2 flex-wrap">
-        <a href="#" class="btn btn-gradient">Manage Users</a>
-        <a href="#" class="btn btn-outline-light">Manage Courses</a>
-        <a href="#" class="btn btn-outline-light">View Activity Logs</a>
+        <a href="<?= base_url('admin/manage-users') ?>" class="btn btn-gradient">Manage Users</a>
+        <a href="<?= base_url('admin/manage-courses') ?>" class="btn btn-outline-light">Manage Courses</a>
+        <a href="<?= base_url('admin/activity-logs') ?>" class="btn btn-outline-light">View Activity Logs</a>
       </div>
     </div>
   </div>
