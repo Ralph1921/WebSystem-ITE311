@@ -1,0 +1,52 @@
+ERROR - 2025-10-06 15:05:33 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_terrado', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(346): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(1297): CodeIgniter\Database\MySQLi\Connection->_escapeString('users')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(50): CodeIgniter\Database\BaseConnection->escapeString('users')
+#5 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(57): App\Controllers\Admin::App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Connection), 'users')
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\Admin->dashboard()
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(346): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(1297): CodeIgniter\Database\MySQLi\Connection->_escapeString('users')
+#3 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(50): CodeIgniter\Database\BaseConnection->escapeString('users')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(57): App\Controllers\Admin::App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Connection), 'users')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\Admin->dashboard()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-10-06 15:05:33 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:184
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(184): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_terrado', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(346): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(1297): CodeIgniter\Database\MySQLi\Connection->_escapeString('courses')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(50): CodeIgniter\Database\BaseConnection->escapeString('courses')
+#5 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(67): App\Controllers\Admin::App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Connection), 'courses')
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\Admin->dashboard()
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(346): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(1297): CodeIgniter\Database\MySQLi\Connection->_escapeString('courses')
+#3 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(50): CodeIgniter\Database\BaseConnection->escapeString('courses')
+#4 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Admin.php(67): App\Controllers\Admin::App\Controllers\{closure}(Object(CodeIgniter\Database\MySQLi\Connection), 'courses')
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(943): App\Controllers\Admin->dashboard()
+#6 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(503): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-TERRADO\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
