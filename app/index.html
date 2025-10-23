@@ -1,11 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>403 Forbidden</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- You might want to link a font like Poppins from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header class="navbar">
+        <div class="navbar-brand">WebSystem</div>
+        <nav class="navbar-nav">
+            <a href="#" class="nav-item active">Home</a>
+            <a href="#" class="nav-item">My Courses</a>
+            <a href="#" class="nav-item">Assignments</a>
+            <a href="#" class="nav-item">Grades</a>
+        </nav>
+        <div class="user-info">
+            <span class="username">Student One</span>
+        </div>
+    </header>
 
-<p>Directory access is forbidden.</p>
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Student Dashboard</h1>
+        <p class="welcome-message">Welcome back, Student One!</p>
 
+        <div class="dashboard-content">
+            <div class="card enrolled-courses">
+                <h2>Enrolled Courses</h2>
+                <div class="course-list">
+                    <div class="course-item">
+                        <span class="course-name">db</span>
+                        <span class="course-status active">Active</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name">PHP 101</span>
+                        <span class="course-status active">Active</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name">Math 205</span>
+                        <span class="course-status active">Active</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name">Math 205</span>
+                        <span class="course-status active">Active</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="course-name">PHP 100</span>
+                        <span class="course-status active">Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card available-courses">
+                <h2>Available Courses</h2>
+                <div class="course-list">
+                    <div class="course-item">
+                        <div class="course-details">
+                            <span class="course-name">Physics 1001</span>
+                            <p class="course-description">Themice 101 deripo and oll mporting</p>
+                        </div>
+                        <button class="enroll-btn">Enroll</button>
+                    </div>
+                    <div class="course-item">
+                        <div class="course-details">
+                            <span class="course-name">History 300</span>
+                            <p class="course-description">Durseert lao; Slayp thashing aonse.ito the sut noord</p>
+                        </div>
+                        <button class="enroll-btn">Enroll</button>
+                    </div>
+                     <div class="course-item">
+                        <div class="course-details">
+                            <span class="course-name">History 300</span>
+                            <p class="course-description">Ourseert loq; hemination the is fixed lest nork</p>
+                        </div>
+                        <button class="enroll-btn">Enroll</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card upcoming-assignments">
+            <h2>Upcoming Assignments</h2>
+            <div class="quick-actions">
+                <button class="action-btn">Manage Users</button>
+                <button class="action-btn">View All Assignments</button>
+                <button class="action-btn">Submit Work</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,71 +1,31 @@
-<?php namespace App\Controllers;
+<?php
 
-use App\Models\CourseModel;
-use App\Models\EnrollmentModel;
+namespace App\Controllers;
+
+use App\Controllers\BaseController;
 
 class StudentDashboard extends BaseController
 {
-    protected $courseModel;
-    protected $enrollModel;
-
-    public function __construct()
-    {
-        $this->courseModel = new CourseModel();
-        $this->enrollModel = new EnrollmentModel();
-    }
-
-    // Dashboard main page
     public function index()
     {
-        $userId = session()->get('user_id') ?? 1;
+        $session = session();
 
-        $enrollments = $this->enrollModel
-                            ->select('courses.title, courses.description, courses.status')
-                            ->join('courses', 'courses.id = enrollments.course_id')
-                            ->where('enrollments.user_id', $userId)
-                            ->findAll();
-
-        $data = [
-            'title'           => 'Student Dashboard',
-            'totalCourses'    => $this->courseModel->countAllResults(false),
-            'myEnrollments'   => count($enrollments),
-            'activeCourses'   => $this->courseModel->where('status', 'active')->countAllResults(false),
-            'enrollments'     => $enrollments,
+        $enrolled = [
+            ['id' => 1, 'title' => 'PHP Fundamentals', 'instructor' => 'Ms. Smith', 'grade' => 'B+'],
+            ['id' => 2, 'title' => 'Database 101',   'instructor' => 'Mr. Cruz',  'grade' => 'A-'],
         ];
 
-        return view('student/dashboard', $data);
-    }
-
-    // Show all courses page
-    public function courses()
-    {
-        $data = [
-            'title' => 'Available Courses',
-            'courses' => $this->courseModel->findAll(),
+        $available = [
+            ['id' => 101, 'title' => 'Test Subject',      'meta' => 'test'],
+            ['id' => 102, 'title' => 'Web Design Basics', 'meta' => 'Instructor: Ms. Park'],
         ];
-        return view('student/courses', $data);
-    }
 
-    // Enroll in a course
-    public function enroll($courseId)
-    {
-        $userId = session()->get('user_id') ?? 1;
+        $data = [
+            'enrolled'  => $enrolled,
+            'available' => $available,
+            'userName'  => $session->get('user_name') ?? 'Student One',
+        ];
 
-        // Prevent duplicate enrollment
-        $exists = $this->enrollModel->where('user_id', $userId)
-                                    ->where('course_id', $courseId)
-                                    ->first();
-
-        if ($exists) {
-            return redirect()->back()->with('error', 'Already enrolled.');
-        }
-
-        $this->enrollModel->insert([
-            'user_id' => $userId,
-            'course_id' => $courseId,
-            'enrollment_date' => date('Y-m-d H:i:s'),
-        ]);
-
-        return redirect()->to('/student/dashboard')->with('message', 'Enrolled successfully.');
+        return view('admin/student_dashboard', $data);
     }
 }
