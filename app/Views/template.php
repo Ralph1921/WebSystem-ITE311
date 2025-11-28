@@ -26,6 +26,11 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-primary" href="<?= site_url('/login') ?>">Login</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
