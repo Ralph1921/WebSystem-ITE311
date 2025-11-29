@@ -94,17 +94,47 @@ class Auth extends BaseController
 
     public function dashboard()
     {
+        // Authorization check - ensure user is logged in
         if (!session()->get('isLoggedIn')) {
             $config = config('App');
             return redirect()->to(rtrim($config->baseURL, '/') . '/login');
         }
 
+        // Get user data from session
+        $db = \Config\Database::connect();
+        $user_id = session()->get('userID');
+        $role = session()->get('role') ?? 'user';
+        $name = session()->get('name') ?? 'User';
+        $email = session()->get('email') ?? '';
+
+        // Fetch role-specific data
         $data = [
-            'name' => session()->get('name') ?? 'User',
-            'email' => session()->get('email') ?? '',
-            'role' => session()->get('role') ?? 'user',
+            'name' => $name,
+            'email' => $email,
+            'role' => $role,
         ];
 
+        // Add role-specific data based on user's role
+        if ($role === 'admin') {
+            // Admin dashboard data
+            $data['total_users'] = $db->table('users')->countAllResults();
+            $data['total_courses'] = $db->table('courses')->countAllResults();
+            $data['recent_users'] = $db->table('users')->orderBy('created_at', 'DESC')->limit(5)->get()->getResultArray();
+        } elseif ($role === 'instructor' || $role === 'teacher') {
+            // Instructor/Teacher dashboard data
+            $data['my_courses'] = $db->table('courses')->where('instructor_id', $user_id)->get()->getResultArray();
+            $data['course_count'] = count($data['my_courses']);
+        } elseif ($role === 'student') {
+            // Student dashboard data
+            $data['enrolled_courses'] = $db->table('enrollments')
+                ->select('enrollments.*, courses.title, courses.description')
+                ->join('courses', 'courses.id = enrollments.course_id')
+                ->where('enrollments.student_id', $user_id)
+                ->get()->getResultArray();
+            $data['course_count'] = count($data['enrolled_courses']);
+        }
+
+        // Pass data to the view
         return view('auth/dashboard', $data);
     }
 }
