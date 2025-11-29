@@ -1,0 +1,77 @@
+/* Formal LMS styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+  --lms-primary: #0b5ed7; /* deep blue */
+  --lms-accent: #0d6efd;
+  --lms-bg: #f6f8fa;
+  --lms-card-bg: #ffffff;
+  --lms-muted: #6c757d;
+}
+
+body{
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-color: var(--lms-bg);
+  color: #212529;
+}
+
+.navbar{
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(33,37,41,0.06);
+}
+
+.navbar .navbar-brand{
+  font-weight: 600;
+  color: #111827 !important;
+}
+
+.navbar .nav-link{
+  color: #374151 !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover{
+  color: var(--lms-primary) !important;
+}
+
+.card{
+  background-color: var(--lms-card-bg);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.card-header{
+  background: linear-gradient(90deg, rgba(11,93,215,0.05), rgba(13,110,253,0.04));
+  border-bottom: 0;
+  font-weight: 600;
+}
+
+.btn-primary{
+  background-color: var(--lms-primary);
+  border-color: var(--lms-primary);
+}
+
+.btn-outline-primary{
+  color: var(--lms-primary);
+  border-color: rgba(11,93,215,0.15);
+}
+
+h1, h2, h3, h4, h5{
+  color: #0f172a;
+}
+
+footer.bg-light{
+  background-color: #ffffff !important;
+  border-top: 1px solid rgba(33,37,41,0.06);
+}
+
+/* Notification dropdown styling */
+.dropdown-menu{
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px){
+  .navbar .nav-link{ font-size: 0.95rem; }
+}

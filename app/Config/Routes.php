@@ -19,6 +19,11 @@ $routes->get('/dashboard', 'Auth::dashboard');
 $routes->post('/course/create', 'Course::create');
 $routes->post('/course/enroll', 'Course::enroll');
 
+// Course listing and search routes
+$routes->get('/courses', 'Course::index');
+$routes->get('/courses/search', 'Course::search');
+$routes->post('/courses/search', 'Course::search');
+
 // Materials routes
 $routes->get('/course/(:num)/upload', 'Materials::upload/$1');
 $routes->post('/course/(:num)/upload', 'Materials::upload/$1');

@@ -4,6 +4,10 @@ $role = session()->get('role') ?? 'guest';
 $name = session()->get('name') ?? 'User';
 ?>
 
+<!-- Ensure Bootstrap CSS and icons are available for pages that include this header -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= site_url('dashboard') ?>">
@@ -42,7 +46,7 @@ $name = session()->get('name') ?? 'User';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('instructor/courses') ?>">
+                        <a class="nav-link" href="<?= site_url('courses') ?>">
                             <i class="bi bi-book"></i> My Courses
                         </a>
                     </li>
@@ -63,7 +67,7 @@ $name = session()->get('name') ?? 'User';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('student/courses') ?>">
+                        <a class="nav-link" href="<?= site_url('courses') ?>">
                             <i class="bi bi-book"></i> My Courses
                         </a>
                     </li>
@@ -95,17 +99,9 @@ $name = session()->get('name') ?? 'User';
                                 <span id="unreadCount">0</span>
                             </span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="min-width: 350px;">
-                            <div style="max-height: 400px; overflow-y: auto;">
-                                <ul id="notificationList" style="list-style: none; margin: 0; padding: 0;">
-                                    <li><a class="dropdown-item text-muted text-center py-3"><small>Loading notifications...</small></a></li>
-                                </ul>
-                            </div>
-                            <hr class="dropdown-divider m-0">
-                            <button class="dropdown-item text-center py-2 text-primary w-100" id="markAllReadBtn" onclick="markAllAsRead()" style="cursor: pointer; border: none; background: none;">
-                                <i class="bi bi-check-all"></i> Mark all as read
-                            </button>
-                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" id="notificationList">
+                            <li><a class="dropdown-item text-muted text-center py-3"><small>Loading notifications...</small></a></li>
+                        </ul>
                     </li>
                 <?php endif; ?>
                 <li class="nav-item">

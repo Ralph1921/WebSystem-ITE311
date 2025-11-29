@@ -128,16 +128,19 @@
                     <div class="card-header bg-success text-white">
                         <h5 class="mb-0"><i class="bi bi-lightning-charge"></i> Quick Actions</h5>
                     </div>
-                    <div class="card-body">
+                        <div class="card-body">
                         <div class="d-grid gap-2">
                             <a href="<?= site_url('/') ?>" class="btn btn-outline-primary">
                                 <i class="bi bi-house"></i> Go to Homepage
+                            </a>
+                            <a href="<?= site_url('courses') ?>" class="btn btn-outline-secondary">
+                                <i class="bi bi-search"></i> Browse Courses
                             </a>
                             <a href="<?= site_url('logout') ?>" class="btn btn-outline-danger">
                                 <i class="bi bi-box-arrow-right"></i> Logout
                             </a>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -190,9 +193,14 @@
                     <div class="card shadow-sm">
                         <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
                             <h5 class="mb-0"><i class="bi bi-book"></i> My Courses</h5>
-                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#createCourseModal">
-                                <i class="bi bi-plus-circle"></i> Create Course
-                            </button>
+                            <div class="d-flex align-items-center gap-2">
+                                <a href="<?= site_url('courses') ?>" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-search"></i> Browse Courses
+                                </a>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#createCourseModal">
+                                    <i class="bi bi-plus-circle"></i> Create Course
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <?php $my_courses = $my_courses ?? []; ?>
@@ -257,9 +265,14 @@
                     <div class="card shadow-sm">
                         <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
                             <h5 class="mb-0"><i class="bi bi-book"></i> My Courses</h5>
-                            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#createCourseModal">
-                                <i class="bi bi-plus-circle"></i> Create Course
-                            </button>
+                            <div class="d-flex align-items-center gap-2">
+                                <a href="<?= site_url('courses') ?>" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-search"></i> Browse Courses
+                                </a>
+                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#createCourseModal">
+                                    <i class="bi bi-plus-circle"></i> Create Course
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <?php $my_courses = $my_courses ?? []; ?>
@@ -384,8 +397,11 @@
                 <!-- Available Courses Section -->
                 <div class="col-12">
                     <div class="card shadow-sm">
-                        <div class="card-header bg-info text-white">
+                        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
                             <h5 class="mb-0"><i class="bi bi-plus-circle"></i> Available Courses</h5>
+                            <a href="<?= site_url('courses') ?>" class="btn btn-sm btn-outline-light">
+                                <i class="bi bi-search"></i> Search Courses
+                            </a>
                         </div>
                         <div class="card-body">
                             <?php $available_courses = $available_courses ?? []; ?>

@@ -123,5 +123,61 @@ class Course extends BaseController
             'message' => 'Failed to enroll in the course'
         ])->setStatusCode(500);
     }
+
+    /**
+     * Display all courses
+     */
+    public function index()
+    {
+        $db = \Config\Database::connect();
+        $courses = $db->table('courses')->get()->getResultArray();
+
+        return view('courses/index', [
+            'courses' => $courses
+        ]);
+    }
+
+    /**
+     * Search for courses by name or description
+     * Supports both GET and POST requests with search_term parameter
+     * Returns JSON for AJAX requests or renders view for regular requests
+     */
+    public function search()
+    {
+        $searchTerm = $this->request->getGet('search_term') ?? $this->request->getPost('search_term') ?? '';
+
+        if (empty($searchTerm)) {
+            $searchTerm = '';
+        }
+
+        $db = \Config\Database::connect();
+        $builder = $db->table('courses');
+
+        // Use LIKE queries to search courses table
+        if (!empty($searchTerm)) {
+            $builder->groupStart()
+                ->like('title', $searchTerm)
+                ->orLike('description', $searchTerm)
+                ->groupEnd();
+        }
+
+        $courses = $builder->get()->getResultArray();
+
+        // Return JSON for AJAX requests
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON([
+                'success' => true,
+                'data' => $courses,
+                'count' => count($courses),
+                'search_term' => $searchTerm
+            ]);
+        }
+
+        // Render view for regular requests
+        return view('courses/search_results', [
+            'courses' => $courses,
+            'searchTerm' => $searchTerm
+        ]);
+    }
 }
 
