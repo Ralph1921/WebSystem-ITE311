@@ -184,8 +184,8 @@
                         </div>
                     </div>
                 </div>
-            <?php elseif ($role === 'instructor'): ?>
-                <!-- Instructor Dashboard Content -->
+            <?php elseif ($role === 'instructor' || $role === 'teacher'): ?>
+                <!-- Instructor/Teacher Dashboard Content -->
                 <div class="col-12">
                     <div class="card shadow-sm">
                         <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
@@ -205,6 +205,11 @@
                                                     <h5 class="card-title"><?= esc($course['title'] ?? 'N/A') ?></h5>
                                                     <p class="card-text"><?= esc($course['description'] ?? '') ?></p>
                                                     <small class="text-muted">ID: <?= $course['id'] ?></small>
+                                                    <div class="mt-3">
+                                                        <a href="<?= site_url('course/' . $course['id'] . '/upload') ?>" class="btn btn-sm btn-info">
+                                                            <i class="bi bi-cloud-arrow-up"></i> Upload Materials
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -332,6 +337,45 @@
                                 </div>
                             <?php else: ?>
                                 <p class="text-muted">You are not enrolled in any courses yet.</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Materials Section -->
+                <div class="col-12 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="mb-0"><i class="bi bi-file-earmark-pdf"></i> Course Materials</h5>
+                        </div>
+                        <div class="card-body">
+                            <?php $course_materials = $course_materials ?? []; ?>
+                            <?php if (!empty($course_materials)): ?>
+                                <?php foreach ($course_materials as $course_id => $data_materials): ?>
+                                    <div class="mb-4">
+                                        <h6 class="text-primary mb-3"><i class="bi bi-book"></i> <?= esc($data_materials['course_title']) ?></h6>
+                                        <div class="list-group">
+                                            <?php foreach ($data_materials['materials'] as $material): ?>
+                                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <h6 class="mb-1">
+                                                            <i class="bi bi-file"></i> <?= esc($material['file_name']) ?>
+                                                        </h6>
+                                                        <small class="text-muted">
+                                                            Uploaded: <?= date('M d, Y', strtotime($material['created_at'])) ?>
+                                                        </small>
+                                                    </div>
+                                                    <a href="<?= site_url('materials/download/' . $material['id']) ?>" class="btn btn-sm btn-primary">
+                                                        <i class="bi bi-cloud-arrow-down"></i> Download
+                                                    </a>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <p class="text-muted"><i class="bi bi-info-circle"></i> No materials available for your enrolled courses yet.</p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -487,42 +531,42 @@
                         // Show success notification
                         showNotification(response.message, 'success');
                         
-                        // Get the enrolled courses list container
-                        var enrolledListGroup = $('.card-header').filter(function() {
+                        // Get the enrolled courses card body
+                        var enrolledCard = $('.card-header').filter(function() {
                             return $(this).text().includes('Enrolled Courses');
-                        }).closest('.card').find('.list-group');
+                        }).closest('.card');
+                        
+                        var enrolledCardBody = enrolledCard.find('.card-body');
                         
                         // Check if list group exists
-                        if (enrolledListGroup.length > 0) {
-                            // Course data from response
-                            var course = response.course;
-                            var enrollmentDate = new Date(course.enrollment_date);
-                            var formattedDate = enrollmentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                            
-                            // Create new enrolled course item
-                            var enrolledItem = '<div class="list-group-item">' +
-                                '<div class="d-flex w-100 justify-content-between">' +
-                                '<h5 class="mb-1">' + course.title + '</h5>' +
-                                '<small>' + formattedDate + '</small>' +
-                                '</div>' +
-                                '<p class="mb-1">' + course.description + '</p>' +
-                                '</div>';
-                            
-                            // Add to enrolled courses
-                            enrolledListGroup.append(enrolledItem);
-                            
-                            // Hide the "not enrolled" message if it exists
-                            var notEnrolledMsg = $('.card-header').filter(function() {
-                                return $(this).text().includes('Enrolled Courses');
-                            }).closest('.card').find('.text-muted').filter(function() {
-                                return $(this).text().includes('not enrolled');
-                            });
-                            if (notEnrolledMsg.length > 0) {
-                                notEnrolledMsg.hide();
-                            }
+                        var enrolledListGroup = enrolledCardBody.find('.list-group');
+                        
+                        if (enrolledListGroup.length === 0) {
+                            // Create list group if it doesn't exist
+                            var newListGroup = '<div class="list-group"></div>';
+                            enrolledCardBody.html(newListGroup);
+                            enrolledListGroup = enrolledCardBody.find('.list-group');
                         }
                         
+                        // Course data from response
+                        var course = response.course;
+                        var enrollmentDate = new Date(course.enrollment_date);
+                        var formattedDate = enrollmentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                        
+                        // Create new enrolled course item
+                        var enrolledItem = '<div class="list-group-item">' +
+                            '<div class="d-flex w-100 justify-content-between">' +
+                            '<h5 class="mb-1">' + course.title + '</h5>' +
+                            '<small>' + formattedDate + '</small>' +
+                            '</div>' +
+                            '<p class="mb-1">' + course.description + '</p>' +
+                            '</div>';
+                        
+                        // Add to enrolled courses
+                        enrolledListGroup.append(enrolledItem);
+                        
                         // Remove the course from available courses
+                        var courseCard = $('#course-' + courseId);
                         courseCard.fadeOut(300, function() {
                             $(this).remove();
                             

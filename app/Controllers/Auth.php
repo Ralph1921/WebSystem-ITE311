@@ -134,6 +134,21 @@ class Auth extends BaseController
                 $enrolled_courses = $enrollmentModel->getUserEnrollments($user_id);
                 $data['enrolled_courses'] = is_array($enrolled_courses) ? $enrolled_courses : [];
                 
+                // Get materials for enrolled courses
+                $materialModel = new \App\Models\MaterialModel();
+                $data['course_materials'] = [];
+                if (!empty($data['enrolled_courses'])) {
+                    foreach ($data['enrolled_courses'] as $course) {
+                        $materials = $materialModel->getMaterialsByCourse($course['course_id']);
+                        if (!empty($materials)) {
+                            $data['course_materials'][$course['course_id']] = [
+                                'course_title' => $course['title'],
+                                'materials' => $materials
+                            ];
+                        }
+                    }
+                }
+                
                 // Get all courses from database
                 $all_courses = $db->table('courses')->get()->getResultArray();
                 $all_courses = is_array($all_courses) ? $all_courses : [];
