@@ -512,7 +512,120 @@
             }, duration);
         }
 
+        // Load notifications from server
+        function loadNotifications() {
+            $.get('<?= site_url('/notifications') ?>', function(response) {
+                if (response.success) {
+                    updateNotificationBadge(response.unread_count);
+                    updateNotificationList(response.notifications);
+                }
+            }, 'json').fail(function(error) {
+                console.error('Failed to load notifications:', error);
+            });
+        }
+
+        // Update the badge count
+        function updateNotificationBadge(count) {
+            var badge = $('#notificationBadge');
+            var countEl = $('#unreadCount');
+            
+            if (count > 0) {
+                countEl.text(count);
+                badge.show();
+            } else {
+                badge.hide();
+            }
+        }
+
+        // Update the notification list
+        function updateNotificationList(notifications) {
+            var notificationList = $('#notificationList');
+            
+            if (notifications.length === 0) {
+                notificationList.html('<li><a class="dropdown-item text-muted text-center py-3"><small>No notifications</small></a></li>');
+                return;
+            }
+
+            var html = '';
+            notifications.forEach(function(notif) {
+                var readClass = notif.is_read ? 'list-group-item-light' : 'list-group-item-info';
+                var createdDate = new Date(notif.created_at);
+                var timeAgo = getTimeAgo(createdDate);
+                
+                html += '<li>';
+                html += '<div class="dropdown-item ' + readClass + ' p-3 border-bottom">';
+                html += '<div class="d-flex justify-content-between align-items-start">';
+                html += '<div class="flex-grow-1">';
+                html += '<p class="mb-1">' + notif.message + '</p>';
+                html += '<small class="text-muted">' + timeAgo + '</small>';
+                html += '</div>';
+                if (!notif.is_read) {
+                    html += '<button class="btn btn-sm btn-light ms-2" onclick="markAsRead(' + notif.id + ')" title="Mark as read">';
+                    html += '<i class="bi bi-check2"></i>';
+                    html += '</button>';
+                }
+                html += '</div>';
+                html += '</div>';
+                html += '</li>';
+            });
+            
+            notificationList.html(html);
+        }
+
+        // Mark notification as read
+        function markAsRead(notificationId) {
+            $.post('<?= site_url('/notifications/mark_read/') ?>' + notificationId, function(response) {
+                if (response.success) {
+                    loadNotifications();
+                }
+            }, 'json');
+        }
+
+        // Mark all notifications as read
+        function markAllAsRead() {
+            $.post('<?= site_url('/notifications/mark_all_read') ?>', function(response) {
+                if (response.success) {
+                    loadNotifications();
+                    showNotification('All notifications marked as read', 'success');
+                }
+            }, 'json').fail(function(error) {
+                console.error('Failed to mark all as read:', error);
+            });
+        }
+
+        // Helper function to get time ago string
+        function getTimeAgo(date) {
+            var seconds = Math.floor((new Date() - date) / 1000);
+            
+            if (seconds < 60) return 'Just now';
+            
+            var intervals = {
+                'year': 31536000,
+                'month': 2592000,
+                'week': 604800,
+                'day': 86400,
+                'hour': 3600,
+                'minute': 60
+            };
+            
+            for (var key in intervals) {
+                var interval = Math.floor(seconds / intervals[key]);
+                if (interval >= 1) {
+                    return interval + ' ' + key + (interval > 1 ? 's' : '') + ' ago';
+                }
+            }
+            return 'Just now';
+        }
+
         $(document).ready(function() {
+            // Load notifications when page loads
+            if ($('#notificationDropdown').length > 0) {
+                console.log('Notifications dropdown found, loading notifications...');
+                loadNotifications();
+                // Refresh notifications every 30 seconds
+                setInterval(loadNotifications, 30000);
+            }
+
             $('.enroll-btn').on('click', function(e) {
                 e.preventDefault();
                 
@@ -530,6 +643,11 @@
                     if (response.success) {
                         // Show success notification
                         showNotification(response.message, 'success');
+                        
+                        // Reload notifications to show new enrollment notification
+                        setTimeout(function() {
+                            loadNotifications();
+                        }, 500);
                         
                         // Get the enrolled courses card body
                         var enrolledCard = $('.card-header').filter(function() {
@@ -605,6 +723,7 @@
                 });
             });
         });
+        
     </script>
 </body>
 </html>

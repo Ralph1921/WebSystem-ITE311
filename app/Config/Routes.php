@@ -24,3 +24,8 @@ $routes->get('/course/(:num)/upload', 'Materials::upload/$1');
 $routes->post('/course/(:num)/upload', 'Materials::upload/$1');
 $routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('/materials/download/(:num)', 'Materials::download/$1');
+
+// Notifications routes
+$routes->get('/notifications', 'Notifications::get');
+$routes->post('/notifications/mark_read/(:num)', 'Notifications::mark_as_read/$1');
+$routes->post('/notifications/mark_all_read', 'Notifications::mark_all_read');

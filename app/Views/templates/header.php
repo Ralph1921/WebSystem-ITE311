@@ -86,6 +86,28 @@ $name = session()->get('name') ?? 'User';
                 <?php endif; ?>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <?php if (session()->get('isLoggedIn')): ?>
+                    <!-- Notifications Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle position-relative" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i> Notifications
+                            <span class="badge bg-danger position-absolute top-0 start-100 translate-middle" id="notificationBadge" style="display: none;">
+                                <span id="unreadCount">0</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="min-width: 350px;">
+                            <div style="max-height: 400px; overflow-y: auto;">
+                                <ul id="notificationList" style="list-style: none; margin: 0; padding: 0;">
+                                    <li><a class="dropdown-item text-muted text-center py-3"><small>Loading notifications...</small></a></li>
+                                </ul>
+                            </div>
+                            <hr class="dropdown-divider m-0">
+                            <button class="dropdown-item text-center py-2 text-primary w-100" id="markAllReadBtn" onclick="markAllAsRead()" style="cursor: pointer; border: none; background: none;">
+                                <i class="bi bi-check-all"></i> Mark all as read
+                            </button>
+                        </div>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item">
                     <span class="nav-link text-white">
                         <i class="bi bi-person-circle"></i> <?= esc($name) ?>
@@ -100,3 +122,4 @@ $name = session()->get('name') ?? 'User';
         </div>
     </div>
 </nav>
+
