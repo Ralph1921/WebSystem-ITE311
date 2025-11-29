@@ -1,0 +1,430 @@
+ERROR - 2025-11-29 00:04:16 --> mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollm...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollm...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollm...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-TERRADO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-29 00:04:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:16 --> [Caused by] mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 00:04:17 --> mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollm...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollm...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollm...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-TERRADO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-29 00:04:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:17 --> [Caused by] mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 00:04:18 --> mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollm...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollm...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollm...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-TERRADO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-29 00:04:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:18 --> [Caused by] mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 00:04:18 --> mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollm...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollm...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollm...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-TERRADO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-29 00:04:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:18 --> [Caused by] mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 00:04:18 --> mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause' in C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-TERRADO\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollm...', 0)
+#1 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollm...')
+#2 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollm...')
+#3 C:\xampp\htdocs\ITE311-TERRADO\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#4 C:\xampp\htdocs\ITE311-TERRADO\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-TERRADO\system\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ITE311-TERRADO\app\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ITE311-TERRADO\app\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(NULL)
+#8 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+#9 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\ITE311-TERRADO\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\ITE311-TERRADO\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\ITE311-TERRADO\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-11-29 00:04:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+[Method: GET, Route: dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 00:04:18 --> [Caused by] mysqli_sql_exception: Unknown column 'enrollments.user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`id` as `course_id`, `courses`.`title`, `courses`.`description`, `courses`.`instructor_id`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` IS NULL', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(677): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\EnrollmentModel.php(38): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Auth.php(119): App\Models\EnrollmentModel->getUserEnrollments(null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
