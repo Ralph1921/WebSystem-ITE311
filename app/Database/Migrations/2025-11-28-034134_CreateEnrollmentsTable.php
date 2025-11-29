@@ -15,7 +15,7 @@ class CreateEnrollmentsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'student_id' => [
+            'user_id' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -25,23 +25,15 @@ class CreateEnrollmentsTable extends Migration
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
-            'enrolled_at' => [
-                'type' => 'DATETIME',
-                'null' => true,
-            ],
-            'created_at' => [
-                'type' => 'DATETIME',
-                'null' => true,
-            ],
-            'updated_at' => [
+            'enrollment_date' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('student_id', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('course_id', 'courses', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addUniqueKey(['student_id', 'course_id']);
+        $this->forge->addUniqueKey(['user_id', 'course_id']);
         $this->forge->createTable('enrollments');
     }
 

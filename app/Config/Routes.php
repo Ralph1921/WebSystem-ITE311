@@ -15,3 +15,6 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Auth::dashboard');
+
+$routes->post('/course/create', 'Course::create');
+$routes->post('/course/enroll', 'Course::enroll');

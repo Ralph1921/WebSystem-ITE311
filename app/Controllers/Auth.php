@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\EnrollmentModel;
 
 class Auth extends BaseController
 {
@@ -89,7 +90,7 @@ class Auth extends BaseController
     {
         session()->destroy();
         $config = config('App');
-        return redirect()->to(rtrim($config->baseURL, '/'));
+        return redirect()->to(rtrim($config->baseURL, '/') . '/');
     }
 
     public function dashboard()
@@ -112,26 +113,49 @@ class Auth extends BaseController
             'name' => $name,
             'email' => $email,
             'role' => $role,
+            'enrolled_courses' => [],
+            'available_courses' => [],
         ];
 
         // Add role-specific data based on user's role
-        if ($role === 'admin') {
-            // Admin dashboard data
-            $data['total_users'] = $db->table('users')->countAllResults();
-            $data['total_courses'] = $db->table('courses')->countAllResults();
-            $data['recent_users'] = $db->table('users')->orderBy('created_at', 'DESC')->limit(5)->get()->getResultArray();
-        } elseif ($role === 'instructor' || $role === 'teacher') {
-            // Instructor/Teacher dashboard data
-            $data['my_courses'] = $db->table('courses')->where('instructor_id', $user_id)->get()->getResultArray();
-            $data['course_count'] = count($data['my_courses']);
-        } elseif ($role === 'student') {
-            // Student dashboard data
-            $data['enrolled_courses'] = $db->table('enrollments')
-                ->select('enrollments.*, courses.title, courses.description')
-                ->join('courses', 'courses.id = enrollments.course_id')
-                ->where('enrollments.student_id', $user_id)
-                ->get()->getResultArray();
-            $data['course_count'] = count($data['enrolled_courses']);
+        try {
+            if ($role === 'admin') {
+                // Admin dashboard data
+                $data['total_users'] = $db->table('users')->countAllResults();
+                $data['total_courses'] = $db->table('courses')->countAllResults();
+                $data['recent_users'] = $db->table('users')->orderBy('created_at', 'DESC')->limit(5)->get()->getResultArray();
+            } elseif ($role === 'instructor' || $role === 'teacher') {
+                // Instructor/Teacher dashboard data
+                $data['my_courses'] = $db->table('courses')->where('instructor_id', $user_id)->get()->getResultArray();
+                $data['course_count'] = count($data['my_courses']);
+            } elseif ($role === 'student') {
+                // Student dashboard data
+                $enrollmentModel = new EnrollmentModel();
+                $enrolled_courses = $enrollmentModel->getUserEnrollments($user_id);
+                $data['enrolled_courses'] = is_array($enrolled_courses) ? $enrolled_courses : [];
+                
+                // Get all courses from database
+                $all_courses = $db->table('courses')->get()->getResultArray();
+                $all_courses = is_array($all_courses) ? $all_courses : [];
+                
+                // Get IDs of already enrolled courses
+                $enrolled_course_ids = [];
+                if (!empty($data['enrolled_courses'])) {
+                    $enrolled_course_ids = array_column($data['enrolled_courses'], 'course_id');
+                }
+                $enrolled_course_ids = is_array($enrolled_course_ids) ? $enrolled_course_ids : [];
+                
+                // Filter available courses (those not already enrolled in)
+                $data['available_courses'] = [];
+                foreach ($all_courses as $course) {
+                    if (!in_array($course['id'], $enrolled_course_ids)) {
+                        $data['available_courses'][] = $course;
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            // Log the error but don't crash the page
+            log_message('error', 'Dashboard Error: ' . $e->getMessage());
         }
 
         // Pass data to the view
